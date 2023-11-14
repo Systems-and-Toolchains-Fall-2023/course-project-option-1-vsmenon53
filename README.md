@@ -7,7 +7,7 @@
 
 **ReadMe File**
 
-**Group Members: **
+**Group Members**
 Nishanth Mohankumar, Vignesh Sujith Menon
 
 **Project and Dataset Description**<br />
