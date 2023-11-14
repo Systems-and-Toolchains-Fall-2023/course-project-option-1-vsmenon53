@@ -11,6 +11,7 @@
 Nishanth Mohankumar, Vignesh Sujith Menon
 
 **Project and Dataset Description**
+
 The dataset consists of meticulously organized statistics of soccer players, providing an in-depth perspective on player performance metrics, attributes, overall ratings, and other keyfeatures pertaining to the player. The dataset was originally collected and used for the popular FIFA games accross the years 2015 to 2022. A more detailed desciption of all features in the dataset are provided below. 
 The objectives of the project includes building and populating necessary database tables, conducting analysis on the dataset, employing Machine Learning models to predict the statistic "overall" of each player, and finally to deploy the code on the cloud.
 
