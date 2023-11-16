@@ -15,6 +15,65 @@ Nishanth Mohankumar, Vignesh Sujith Menon
 The dataset consists of meticulously organized statistics of soccer players, providing an in-depth perspective on player performance metrics, attributes, overall ratings, and other keyfeatures pertaining to the player. The dataset was originally collected and used for the popular FIFA games accross the years 2015 to 2022. A more detailed desciption of all features in the dataset are provided below. 
 The objectives of the project includes building and populating necessary database tables, conducting analysis on the dataset, employing Machine Learning models to predict the statistic "overall" of each player, and finally to deploy the code on the cloud.
 
+**Task 3: Explanation on the choice of regressor and hyperparameters**<br />
+Firstly, we treat the prediction of "overall" as a regression task. We come to this conclusion because "overall" seems to be a continuous value from 40 - 94, rather than a discrete value, in which case this would be a classification problem. Not to say that this problem may not be implemented as a classification problem, however, we do believe that treating the problem as a regression problem is the most efficient and intuitive way of approaching this problem.<br /> 
+
+**Spark: Linear Regression and XG Gradient Boosted Trees**<br />
+The above regression models were chosen because of their difference in complexity and underlying structure of these models. A linear regression being the most basic form of regression, while  GBT being a more complicated non-linear regression technique. Parameters were tuned using a Parameter Grid which instantiated models with each set of specified parameters. The best model is saved and the prediction results using that best model are published. The grid and results from each model are given below. <br />
+
+**Linear Regression**<br />
+Parameter Grid: lr_paramGrid = (ParamGridBuilder()
+             .addGrid(lr.regParam, [0, 0.01, 0.1, 1])
+             .addGrid(lr.maxIter, [100, 500, 1000])
+             .build())<br />
+RMSE before tuning: 2.78<br />
+default regPara = 0<br />
+default maxIter = 100<br />
+
+Root Mean Squared Error (RMSE) on test data after tuning = 2.77<br />
+Regularization Parameter after tuning:  0.0<br />
+Maximum Iteration Parameter after tuning:  100<br />
+
+**GBT**<br />
+Parameter Grid: gbt_paramGrid = (ParamGridBuilder()
+             .addGrid(gbt.stepSize, [0.001, 0.01, 0.1, 0.5])
+             .addGrid(gbt.maxDepth, [2, 5, 10])
+             .build())<br />
+RMSE before tuning: 1.92<br />
+default stepSize = 0.1<br />
+default maxDepth = 5<br />
+
+Root Mean Squared Error (RMSE) on test data after tuning = 1.38<br />
+Step Size/Learning Rate Parameter after tuning:  0.1<br />
+Maximum Depth Parameter after tuning:  10<br />
+
+**PyTorch: Shallow Neural Network and Deep Neural Network**<br /><br />
+**PyTorch Shallow Neural Network Model Tuning: 2 hidden layers, each with a width of 8**<br />
+Attempt 1. lr = 0.005, batch_size = 32, N_epochs = 50, optimizer = Adam<br />
+Train and Validation Loss graphs look typical of a converging model. However, upon further inspection of the per epoch results, it seems that the train loss is still decreasing with every epoch. Therefore, we try to increase learning rate in hopes of the model converging earlier. But we will also increase the batch size to combat the accompanied randomness. <br />
+Validation Loss = 1.79<br />
+
+Attempt 2. lr = 0.01, batch_size = 64, N_epochs = 50, optimizer = Adam<br />
+With this model, we achieve ideal model behaviour over the 50 epochs. Train loss seems to have converged by the 40th epoch. And the graph of train and validation seem ideal as well. Additionally, we also see an improvement of validation loss to 1.70. Therefore, we are satisfied with these training parameters.<br />
+
+**Best Model: Train Loss = 1.89, Validation Loss = 1.70, Test Loss = 1.30**<br />
+
+**PyTorch Deep Neural Network Model Tuning: 6 hidden layers with width as follows: 16, 32, 64, 64, 32, and 16**<br />
+Attempt 1. lr = 0.005, batch_size = 32, N_epochs = 50, optimizer = Adam<br />
+We observe very good performance on both the training and validation set. However, it does seem like even at the 50th epoch, the loss values are decreasing. Therefore, we may come to the conclusion that the loss value hasn't converged yet, even though the validation loss is extremely low at 0.75. So we will try to help the model converge faster by increasing the learning rate and batch size(to combat the accompanied increase in randomness/oscillation in loss). Another reason for increasing the batch size is that the training of the model took quite long(30 minutes), which may be because the batch size is so small that each epoch has so many batches that it iterates through, making it take too long.<br />
+Validation Loss = 0.752<br />
+
+Attempt 2. lr = 0.01, batch_size = 64, N_epochs = 50, optimizer = Adam<br />
+With these training parameters, the model does achieve better validation accuracy of 0.717. However, a look at the loss curves show an oscillating pattern which doesn't bode well. Additionally we also see spikes in the train batch loss plot, pointing toward the learning rate being too high. This is undesirable and therefore, we will further tune the model by decreasing learning rate to 0.005 and increasing the N_epochs to 100, so we overcome the problem faced in the 1st iteration. We are happy with the result of the model, but would like the model to perform better in terms of training. <br />
+Validation Loss = 0.717<br />
+
+Attempt 3. lr = 0.005, batch_size = 64, N_epochs = 100, optimizer = Adam<br />
+We still do continue to see randomness/oscillations in the validation and train loss, even though it is not so pronounced. However, the validation loss achieved from this model is higher than from the 2nd set of training parameters. And since this difference is considerable, with reference to the actual loss value, it would make more sense to run the model with the 2nd set of parameters, since we are anyways only saving the loss value of the best model. <br />
+Validation Loss = 0.823<br />
+
+**Best Model: Train Loss = 0.935, Validation Loss = 0.753, Test Loss = 0.86**<br /><br /><br />
+
+
 **Feature Description**
 
 - sofifa\_id: Identifier for each player in Sofifa database.
