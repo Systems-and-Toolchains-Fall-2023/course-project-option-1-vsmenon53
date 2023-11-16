@@ -14,7 +14,7 @@ Nishanth Mohankumar, Vignesh Sujith Menon
 
 The dataset consists of meticulously organized statistics of soccer players, providing an in-depth perspective on player performance metrics, attributes, overall ratings, and other keyfeatures pertaining to the player. The dataset was originally collected and used for the popular FIFA games accross the years 2015 to 2022. A more detailed desciption of all features in the dataset are provided below. 
 The objectives of the project includes building and populating necessary database tables, conducting analysis on the dataset, employing Machine Learning models to predict the statistic "overall" of each player, and finally to deploy the code on the cloud.
-
+<br /><br /><br /><br /><br />
 **Task 3: Explanation on the choice of regressor and hyperparameters**<br />
 Firstly, we treat the prediction of "overall" as a regression task. We come to this conclusion because "overall" seems to be a continuous value from 40 - 94, rather than a discrete value, in which case this would be a classification problem. Not to say that this problem may not be implemented as a classification problem, however, we do believe that treating the problem as a regression problem is the most efficient and intuitive way of approaching this problem.<br /> 
 
