@@ -19,7 +19,9 @@ https://cmu.box.com/s/0zidbjylxyhbns8n7podmxpt03jpnal7
 2. In Cell 2, you would need to alter the file path slightly, depending on where you data files are placed. So, if you have a data sub-folder, as is in this github repo, then you would need to alter the path to
     file_path = "data/" + + f"players_{year}.csv"
 4. No other special configuration or setting, just run through it cell by cell.
+
 <br /><br /><br />
+
 **Project and Dataset Description**<br />
 
 The dataset consists of meticulously organized statistics of soccer players, providing an in-depth perspective on player performance metrics, attributes, overall ratings, and other keyfeatures pertaining to the player. The dataset was originally collected and used for the popular FIFA games accross the years 2015 to 2022. A more detailed desciption of all features in the dataset are provided below. 
