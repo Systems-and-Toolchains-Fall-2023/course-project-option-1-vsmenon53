@@ -14,6 +14,10 @@ Nishanth Mohankumar, Vignesh Sujith Menon
 **Video link to cmu box**
 https://cmu.box.com/s/0zidbjylxyhbns8n7podmxpt03jpnal7
 
+**Exact steps on how to run code and the input configurations**
+1. Download "Course Project - Option 1 - Main - Final Version.ipynb
+2. No special configuration or setting, just run through it cell by cell.
+
 **Project and Dataset Description**<br />
 
 The dataset consists of meticulously organized statistics of soccer players, providing an in-depth perspective on player performance metrics, attributes, overall ratings, and other keyfeatures pertaining to the player. The dataset was originally collected and used for the popular FIFA games accross the years 2015 to 2022. A more detailed desciption of all features in the dataset are provided below. 
