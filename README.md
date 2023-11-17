@@ -135,6 +135,12 @@ Validation Loss = 0.823<br />
 
 ********
 
+
+
+**Correlated Columns:**
+correlated_col = ['movement_acceleration', 'movement_sprint_speed', 'attacking_finishing', 'attacking_short_passing', 'skill_dribbling', 'skill_ball_control', 'mentality_interceptions', 'defending_marking_awareness', 'defending_standing_tackle', 'defending_sliding_tackle', 'defending_sliding_tackle']
+
+
 **Identification of Constraints:**
 
 
