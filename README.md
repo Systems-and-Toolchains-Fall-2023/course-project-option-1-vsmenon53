@@ -16,7 +16,9 @@ https://cmu.box.com/s/0zidbjylxyhbns8n7podmxpt03jpnal7
 
 **Exact steps on how to run code and the input configurations**
 1. Download "Course Project - Option 1 - Main - Final Version.ipynb
-2. No special configuration or setting, just run through it cell by cell.
+2. In Cell 2, you would need to alter the file path slightly, depending on where you data files are placed. So, if you have a data sub-folder, as is in this github repo, then you would need to alter the path to
+    file_path = "data/" + + f"players_{year}.csv"
+4. No other special configuration or setting, just run through it cell by cell.
 
 **Project and Dataset Description**<br />
 
